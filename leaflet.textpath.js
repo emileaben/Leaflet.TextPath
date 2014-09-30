@@ -108,6 +108,13 @@ var PolylineTextPath = {
             /* Set the position for the left side of the textNode */
             textNode.setAttribute('dx', ((pathWidth / 2) - (textWidth / 2)));
         }
+        /* put text at end of the path */
+        if (options.end) {
+            var textWidth = textNode.getBBox().width;
+            var pathWidth = this._path.getBBox().width;
+            /* Set the position for the left side of the textNode */
+            textNode.setAttribute('dx', pathWidth - textWidth );
+        }
 
         /* Initialize mouse events for the additional nodes */
         if (this.options.clickable) {
